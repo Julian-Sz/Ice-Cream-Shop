@@ -1,24 +1,91 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from "./logo.svg";
+import React, { useReducer } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./App.css";
+import Nav from "./components/Nav";
+import Home from "./components/Home";
+import ChooseConeCup from "./components/ChooseConeCup";
+// import ChooseCount from "./components/ChooseCount";
+import ChooseKind from "./components/ChooseKind";
+import Visualization from "./components/Visualization";
+
+export const VARIETIES = {
+  Vanilla: "#FAE074",
+  Chocolate: "#995E38",
+  Strawberry: "#FA5527",
+  Blueberry: "#5F66F5",
+  Pistachio: "#9EF3B3",
+  Stracciatella:
+    "repeating-linear-gradient(45deg, #FFFFFF 39%, #593821 40%, #FFFFFF 41%, #FFFFFF 60%)",
+  Wildberry: "#C48BF0",
+  Coffee: "#CE9A5F",
+};
+
+export const ACTIONS = {
+  SET_CONE: "change-cone",
+  ADD_SCOOP: "add-scoop",
+  REMOVE_CUP: "remove-cup",
+  RESET: "reset",
+};
+
+const reducer = (prev, action) => {
+  switch (action.type) {
+    case ACTIONS.SET_CONE:
+      return { ...prev, cone: action.payload };
+    case ACTIONS.ADD_SCOOP:
+      let newScoops = [...prev.scoops];
+      if (newScoops.length < 5) {
+        newScoops.push(action.payload);
+      }
+      return { ...prev, scoops: newScoops };
+    case ACTIONS.RESET:
+      return { ...prev, scoops: [], cone: undefined };
+    default:
+      return prev;
+  }
+};
+
+export const MyContext = React.createContext();
 
 function App() {
+  const [store, dispatch] = useReducer(reducer, {
+    cone: undefined,
+    scoops: [],
+  });
+
+  const visuContainerStyles = {
+    minHeight: "570px",
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App flex flex-col justify-start items-center h-screen">
+        <MyContext.Provider value={{ store, dispatch }}>
+          <Nav />
+          <div className="flex flex-col md:flex-row w-full justify-center">
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/(ChooseKind|ChooseConeCup)/">
+              {store.cone !== undefined ? (
+                <div
+                  id="visualization-container"
+                  className="relative w-80"
+                  style={visuContainerStyles}
+                >
+                  <Visualization />
+                </div>
+              ) : undefined}
+            </Route>
+            <Route path="/ChooseConeCup">
+              <ChooseConeCup />
+            </Route>
+            <Route path="/ChooseKind">
+              <ChooseKind />
+            </Route>
+          </div>
+        </MyContext.Provider>
+      </div>
+    </Router>
   );
 }
 
