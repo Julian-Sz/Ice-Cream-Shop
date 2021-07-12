@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { VARIETIES, ACTIONS, MyContext } from "../App.js";
 import { useHistory } from "react-router-dom";
 import Menu from "./Menu.js";
+import ScoopListItem from "./ScoopListItem.js";
 
 export default function ChooseKind() {
   const { store, dispatch } = useContext(MyContext);
@@ -11,20 +12,10 @@ export default function ChooseKind() {
   }
   return (
     <div className="flex flex-col md:w-6/12 w-9/12">
+      {store.scoops.map((el, index) => {
+        return <ScoopListItem el={el} index={index} key={index} />;
+      })}
       <Menu />
-      {/* {Object.entries(VARIETIES).map((el, index) => {
-        let name = el[0];
-        let color = el[1];
-        let style = {
-          background: color,
-        };
-        return (
-          <div className="w-full flex justify-between">
-            <span>{name}</span>
-            <div className="rounded w-20 h-3 inline-block" style={style}></div>
-          </div>
-        );
-      })} */}
     </div>
   );
 }
