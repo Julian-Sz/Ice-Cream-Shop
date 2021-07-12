@@ -61,7 +61,7 @@ function App() {
       <div className="App flex flex-col justify-start items-center h-screen">
         <MyContext.Provider value={{ store, dispatch }}>
           <Nav />
-          <div className="flex flex-col md:flex-row w-full justify-center">
+          <div className="flex flex-col md:flex-row w-full justify-center items-center">
             <Route path="/" exact>
               <Home />
             </Route>

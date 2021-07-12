@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { VARIETIES, ACTIONS, MyContext } from "../App.js";
 import { useHistory } from "react-router-dom";
+import Menu from "./Menu.js";
 
 export default function ChooseKind() {
   const { store, dispatch } = useContext(MyContext);
@@ -9,8 +10,27 @@ export default function ChooseKind() {
     history.push("/ChooseConeCup");
   }
   return (
-    <div className="flex flex-col w-6/12">
-      {Object.entries(VARIETIES).map((el, index) => {
+    <div className="flex flex-col md:w-6/12 w-9/12">
+      <Menu />
+      {/* {Object.entries(VARIETIES).map((el, index) => {
+        let name = el[0];
+        let color = el[1];
+        let style = {
+          background: color,
+        };
+        return (
+          <div className="w-full flex justify-between">
+            <span>{name}</span>
+            <div className="rounded w-20 h-3 inline-block" style={style}></div>
+          </div>
+        );
+      })} */}
+    </div>
+  );
+}
+
+{
+  /* {Object.entries(VARIETIES).map((el, index) => {
         let name = el[0];
         let color = el[1];
         let style = {
@@ -30,7 +50,5 @@ export default function ChooseKind() {
             </span>
           </li>
         );
-      })}
-    </div>
-  );
+      })} */
 }
