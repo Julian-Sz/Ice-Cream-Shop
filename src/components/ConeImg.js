@@ -1,6 +1,21 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function ConeImg() {
+  const pathVariants = {
+    hidden: {
+      opacity: 0,
+      pathLength: 0,
+    },
+    animate: {
+      opacity: 1,
+      pathLength: 1,
+      transition: {
+        duration: 2,
+        ease: "easeInOut",
+      },
+    },
+  };
   return (
     <svg
       id="svg_visu"
@@ -11,7 +26,10 @@ export default function ConeImg() {
     >
       <g id="Layer_1">
         <title>Layer 1</title>
-        <path
+        <motion.path
+          variants={pathVariants}
+          initial="hidden"
+          animate="animate"
           fill="#FFDFB8"
           d="m12.50001,12.5l115.99999,500l115.99999,-500l-231.99999,0l0.00001,0z"
           stroke="#482816"

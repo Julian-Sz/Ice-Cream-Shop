@@ -1,6 +1,19 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function CupImg() {
+  const pathVariants = {
+    hidden: {
+      pathLength: 0,
+    },
+    animate: {
+      pathLength: 1,
+      transition: {
+        duration: 2,
+        ease: "easeInOut",
+      },
+    },
+  };
   return (
     <svg
       id="svg_visu"
@@ -11,7 +24,10 @@ export default function CupImg() {
     >
       <g id="Layer_1">
         <title>Layer 1</title>
-        <path
+        <motion.path
+          variants={pathVariants}
+          initial="hidden"
+          animate="animate"
           fill="#FFDFB8"
           strokeWidth="25"
           d="m12.5,12.5l55.875,450.99996l186.25001,0l55.87498,-450.99996l-297.99999,0z"

@@ -33,7 +33,7 @@ export default function Menu() {
     };
   }
   return (
-    <div className="p-3 rounded shadow-md" style={containerStyle}>
+    <div className="p-3 rounded shadow-md bg-gray-100" style={containerStyle}>
       <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-max gap-3 place-items-stretch">
         <div className="col-span-2 md:col-span-4 p-5 rounded shadow-md bg-gray-500 bg-opacity-80">
           <span className="p-1 rounded text-white text-2xl">
@@ -68,19 +68,24 @@ export default function Menu() {
               variants={btnWrapperVariants}
               initial="initial"
               animate="animate"
-              className="rounded"
+              className="rounded relative"
               key={index}
             >
               <motion.button
                 variants={btnVariants}
                 animate={state.selected.name !== name ? "normal" : "selected"}
-                className="w-full h-full rounded py-3 shadow-lg"
+                className="w-full rounded py-3 shadow-lg"
                 style={btnStyle}
                 onClick={() => {
                   btnClickHandler(el);
                 }}
               >
-                <span className="bg-gray-500 p-1 rounded bg-opacity-80 text-white">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  className="absolute right-0 left-0 top-0 bottom-0 z-0 bg-gray-800 bg-opacity-60 rounded"
+                ></motion.div>
+                <span className="bg-gray-500 p-1 rounded bg-opacity-80 text-white z-20 relative">
                   {name}
                 </span>
               </motion.button>
@@ -89,9 +94,11 @@ export default function Menu() {
         })}
       </div>
       <div className="flex justify-between my-3">
-        <button className="p-3 bg-yellow-500 rounded">Cancel</button>
+        <button className="p-3 bg-yellow-500 rounded hover:bg-yellow-200 shadow-lg">
+          Cancel
+        </button>
         <button
-          className="p-3 bg-yellow-500 rounded"
+          className="p-3 bg-yellow-500 rounded hover:bg-yellow-200 shadow-lg"
           onClick={() => {
             nextClickHandler();
           }}
