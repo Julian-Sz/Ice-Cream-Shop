@@ -29,14 +29,17 @@ export const ACTIONS = {
 };
 
 const reducer = (prev, action) => {
+  let newScoops = [...prev.scoops];
   switch (action.type) {
     case ACTIONS.SET_CONE:
       return { ...prev, cone: action.payload };
     case ACTIONS.ADD_SCOOP:
-      let newScoops = [...prev.scoops];
       if (newScoops.length < 5) {
         newScoops.push(action.payload);
       }
+      return { ...prev, scoops: newScoops };
+    case ACTIONS.REMOVE_CUP:
+      newScoops.splice(action.payload, 1);
       return { ...prev, scoops: newScoops };
     case ACTIONS.RESET:
       return { ...prev, scoops: [], cone: undefined };
@@ -69,7 +72,7 @@ function App() {
               {store.cone !== undefined ? (
                 <div
                   id="visualization-container"
-                  className="relative w-80"
+                  className="relative w-80 mb-3"
                   style={visuContainerStyles}
                 >
                   <Visualization />
