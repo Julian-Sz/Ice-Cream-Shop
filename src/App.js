@@ -1,6 +1,6 @@
 // import logo from "./logo.svg";
 import React, { useReducer } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/Nav";
 import Home from "./components/Home";
@@ -61,7 +61,17 @@ function App() {
   };
   return (
     <Router>
-      <div className="App flex flex-col justify-start items-center h-screen">
+      <div id="background-circles" className="z-0">
+        <div
+          id="bg-circle1"
+          className="rounded-full absolute bottom-0 left-0"
+        ></div>
+        <div
+          id="bg-circle2"
+          className="rounded-full absolute top-2 right-10"
+        ></div>
+      </div>
+      <div className="App flex flex-col justify-start items-center h-screen z-10 text-center text-white">
         <MyContext.Provider value={{ store, dispatch }}>
           <Nav />
           <div className="flex flex-col md:flex-row w-full justify-center items-center">

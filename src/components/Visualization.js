@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from "react";
-import { VARIETIES, ACTIONS, MyContext } from "../App.js";
+import React, { useContext } from "react";
+import { ACTIONS, MyContext } from "../App.js";
 import CupImg from "./CupImg";
 import ConeImg from "./ConeImg";
 import Scoop from "./Scoop";

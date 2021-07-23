@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import { VARIETIES, ACTIONS, MyContext } from "../App.js";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export default function Menu() {
-  const { store, dispatch } = useContext(MyContext);
+  const { dispatch } = useContext(MyContext);
   const [state, setState] = useState({
     selected: { name: undefined, color: undefined },
   });
@@ -53,27 +53,22 @@ export default function Menu() {
               opacity: 0.5,
               scale: 0.5,
             },
-            animate: {
+            normal: {
               opacity: 1,
               scale: 1,
             },
-          };
-
-          const btnVariants = {
-            normal: { scale: 1 },
-            selected: { scale: 1.2 },
+            selected: { opacity: 1, scale: 1.2, zIndex: 30 },
           };
           return (
             <motion.div
               variants={btnWrapperVariants}
               initial="initial"
-              animate="animate"
+              animate={state.selected.name !== name ? "normal" : "selected"}
               className="rounded relative"
               key={index}
             >
               <motion.button
-                variants={btnVariants}
-                animate={state.selected.name !== name ? "normal" : "selected"}
+                // variants={btnVariants}
                 className="w-full rounded py-3 shadow-lg"
                 style={btnStyle}
                 onClick={() => {
@@ -83,9 +78,9 @@ export default function Menu() {
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
-                  className="absolute right-0 left-0 top-0 bottom-0 z-0 bg-gray-800 bg-opacity-60 rounded"
+                  className="absolute right-0 left-0 top-0 bottom-0 z-10 bg-gray-800 bg-opacity-60 rounded"
                 ></motion.div>
-                <span className="bg-gray-500 p-1 rounded bg-opacity-80 text-white z-20 relative">
+                <span className="bg-gray-500 p-1 rounded bg-opacity-80 text-white z-100 relative">
                   {name}
                 </span>
               </motion.button>

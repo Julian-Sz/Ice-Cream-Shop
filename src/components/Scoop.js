@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { MyContext } from "../App.js";
+import React from "react";
+// import { MyContext } from "../App.js";
 
 export default function Scoop(props) {
-  const { store } = useContext(MyContext);
+  // const { store } = useContext(MyContext);
   const scoopStyle = {
     border: "3px solid black",
     borderRadius: "50%",

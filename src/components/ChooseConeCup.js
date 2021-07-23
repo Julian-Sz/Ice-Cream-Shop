@@ -1,15 +1,15 @@
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { VARIETIES, ACTIONS, MyContext } from "../App.js";
+import { ACTIONS, MyContext } from "../App.js";
 
 export default function ChooseConeCup() {
-  const { store, dispatch } = useContext(MyContext);
+  const { dispatch } = useContext(MyContext); //store
   useEffect(() => {
     dispatch({ type: ACTIONS.RESET, payload: undefined });
-  }, []);
+  }, [dispatch]);
 
   return (
-    <div className="w-6/12">
+    <div className="w-6/12 z-10">
       <h2>How would you like your ice?</h2>
 
       {/* <Link to="/ChooseKind"> */}

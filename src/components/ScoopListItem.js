@@ -1,8 +1,8 @@
-import React, { useContext, useEffect } from "react";
-import { VARIETIES, ACTIONS, MyContext } from "../App.js";
+import React, { useContext } from "react";
+import { ACTIONS, MyContext } from "../App.js";
 
 export default function ScoopListItem(props) {
-  const { store, dispatch } = useContext(MyContext);
+  const { dispatch } = useContext(MyContext);
 
   const rowStyle = {
     borderTop: "3px solid gray",

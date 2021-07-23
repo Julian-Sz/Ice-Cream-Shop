@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { ACTIONS, MyContext } from "../App.js";
+// import { ACTIONS, MyContext } from "../App.js";
 
 export default function Home() {
-  const { dispatch } = useContext(MyContext);
+  // const { dispatch } = useContext(MyContext);
 
   return (
     <div className="">
