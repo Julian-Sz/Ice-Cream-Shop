@@ -74,28 +74,26 @@ function App() {
       <div className="App flex flex-col justify-start items-center h-screen z-10 text-center text-white">
         <MyContext.Provider value={{ store, dispatch }}>
           <Nav />
-          <div className="flex flex-col md:flex-row w-full justify-center items-center">
-            <Route path="/" exact>
-              <Home />
-            </Route>
-            <Route path="/(ChooseKind|ChooseConeCup)/">
-              {store.cone !== undefined ? (
-                <div
-                  id="visualization-container"
-                  className="relative w-80 mb-3"
-                  style={visuContainerStyles}
-                >
-                  <Visualization />
-                </div>
-              ) : undefined}
-            </Route>
-            <Route path="/ChooseConeCup">
-              <ChooseConeCup />
-            </Route>
-            <Route path="/ChooseKind">
-              <ChooseKind />
-            </Route>
-          </div>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/(ChooseKind|ChooseConeCup)/">
+            {store.cone !== undefined ? (
+              <div
+                id="visualization-container"
+                className="relative w-80 mb-3"
+                style={visuContainerStyles}
+              >
+                <Visualization />
+              </div>
+            ) : undefined}
+          </Route>
+          <Route path="/ChooseConeCup">
+            <ChooseConeCup />
+          </Route>
+          <Route path="/ChooseKind">
+            <ChooseKind />
+          </Route>
         </MyContext.Provider>
       </div>
     </Router>
