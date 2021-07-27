@@ -71,7 +71,7 @@ export default function Visualization() {
   }
 
   return (
-    <React.Fragment>
+    <>
       {store.scoops.map((el, index) => {
         return (
           <Scoop
@@ -85,6 +85,6 @@ export default function Visualization() {
         );
       })}
       {store.cone ? <ConeImg /> : <CupImg />}
-    </React.Fragment>
+    </>
   );
 }

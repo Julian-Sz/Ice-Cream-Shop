@@ -18,7 +18,7 @@ export default function ScoopListItem(props) {
   };
   return (
     <div
-      className="flex justify-between my-2 p-1 rounded bg-gray-100 hover:bg-white"
+      className="flex justify-between my-2 p-1 rounded bg-gray-100 hover:bg-white text-black"
       style={rowStyle}
     >
       <span style={spanStyle}>

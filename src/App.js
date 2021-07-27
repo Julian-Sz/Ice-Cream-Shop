@@ -1,13 +1,13 @@
 // import logo from "./logo.svg";
 import React, { useReducer } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/Nav";
 import Home from "./components/Home";
 import ChooseConeCup from "./components/ChooseConeCup";
-// import ChooseCount from "./components/ChooseCount";
 import ChooseKind from "./components/ChooseKind";
 import Visualization from "./components/Visualization";
+import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
 export const VARIETIES = {
   Vanilla: "#FAE074",
@@ -77,8 +77,8 @@ function App() {
           <Route path="/" exact>
             <Home />
           </Route>
-          <Route path="/(ChooseKind|ChooseConeCup)/">
-            {store.cone !== undefined ? (
+          {/* <Route path="/(ChooseKind|ChooseConeCup)/">
+            {store.cone !== undefined && (
               <div
                 id="visualization-container"
                 className="relative w-80 mb-3"
@@ -86,8 +86,8 @@ function App() {
               >
                 <Visualization />
               </div>
-            ) : undefined}
-          </Route>
+            )}
+          </Route> */}
           <Route path="/ChooseConeCup">
             <ChooseConeCup />
           </Route>

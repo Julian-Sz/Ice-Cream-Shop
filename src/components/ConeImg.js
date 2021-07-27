@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function ConeImg() {
+export default function ConeImg(props) {
   const pathVariants = {
     hidden: {
       opacity: 0,
@@ -16,26 +16,35 @@ export default function ConeImg() {
       },
     },
   };
+
+  const svgStyle = {
+    height: props.height,
+    maxWidth: "100%",
+    maxHeight: "100%",
+  };
   return (
-    <svg
+    <motion.svg
       id="svg_visu"
-      height="50%"
-      viewBox="0 0 257 525"
-      className="absolute bottom-0 left-0 right-0 mx-auto z-20"
+      viewBox="-16 -12.5 232 417"
+      // className="absolute bottom-0 left-0 right-0 mx-auto z-20"
       xmlns="http://www.w3.org/2000/svg"
+      style={svgStyle}
+      className="h-full"
+      // layout
+      // layoutID="ConeImg"
     >
       <g id="Layer_1">
         <title>Layer 1</title>
         <motion.path
-          variants={pathVariants}
-          initial="hidden"
-          animate="animate"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 3 }}
           fill="#FFDFB8"
-          d="m12.50001,12.5l115.99999,500l115.99999,-500l-231.99999,0l0.00001,0z"
+          d="M0,0l100,400l100,-400L0,0l100,400"
           stroke="#482816"
           strokeWidth="25"
         />
       </g>
-    </svg>
+    </motion.svg>
   );
 }

@@ -7,9 +7,6 @@ export default function Nav(props) {
 
   const liClasses =
     "px-3 py-1 rounded border-4 shadow-2xl hover:bg-gray-200 hover:text-black";
-  const liStyle = {
-    background: "#34495e",
-  };
 
   const navWrapperStyle = {
     background: "#2c3e50",

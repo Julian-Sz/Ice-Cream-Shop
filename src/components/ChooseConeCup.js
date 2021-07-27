@@ -1,6 +1,9 @@
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ACTIONS, MyContext } from "../App.js";
+import ConeImg from "./ConeImg.js";
+import CupImg from "./CupImg.js";
+import { motion, AnimateSharedLayout } from "framer-motion";
 
 export default function ChooseConeCup() {
   const { dispatch } = useContext(MyContext); //store
@@ -8,34 +11,41 @@ export default function ChooseConeCup() {
     dispatch({ type: ACTIONS.RESET, payload: undefined });
   }, [dispatch]);
 
+  const cardStyle = {
+    background: "#2c3e50",
+    height: "80vh",
+    gridTemplateRows: "auto 40% 40%",
+  };
   return (
-    <div className="w-6/12 z-10">
-      <h2>How would you like your ice?</h2>
-
-      {/* <Link to="/ChooseKind"> */}
-      <div className="flex flex-col">
-        <Link to="ChooseKind" className="mb-3">
-          <button
-            className="p-3 bg-yellow-500 rounded w-full"
-            onClick={() => {
-              dispatch({ type: ACTIONS.SET_CONE, payload: false });
-            }}
-          >
-            Cup
-          </button>
-        </Link>
-        <Link to="ChooseKind">
-          <button
-            className="p-3 bg-yellow-500 rounded w-full"
-            onClick={() => {
-              dispatch({ type: ACTIONS.SET_CONE, payload: true });
-            }}
-          >
-            Cone
-          </button>
-        </Link>
-      </div>
-      {/* </Link> */}
-    </div>
+    <motion.div
+      className="grid grid-cols-1 md:grid-cols-2 z-10 p-5 w-11/12 shadow-2xl justify-items-center auto-rows-min"
+      style={cardStyle}
+      // initial={{ x: 400 }}
+      // animate={{ x: 0 }}
+    >
+      <h1 className="col-span-1 md:col-span-2 text-2xl md:text-5xl md:mb-5">
+        How would you like your ice?
+      </h1>
+      <Link
+        to="ChooseKind"
+        onClick={() => {
+          dispatch({ type: ACTIONS.SET_CONE, payload: true });
+        }}
+        className="md:row-span-2 border-b-2 md:border-b-0 md:border-r-2 flex w-full justify-between items-center md:flex-col"
+      >
+        <h2 className="text-2xl md:text-3xl my-1 mx-4 md:my-5">Cone</h2>
+        <ConeImg height="70%" />
+      </Link>
+      <Link
+        to="ChooseKind"
+        onClick={() => {
+          dispatch({ type: ACTIONS.SET_CONE, payload: false });
+        }}
+        className="md:row-span-2 border-t-2 md:border-t-0 md:border-l-2 flex w-full justify-between items-center md:flex-col"
+      >
+        <h2 className="text-2xl md:text-3xl my-1 mx-4 md:my-5">Cup</h2>
+        <CupImg height="70%" />
+      </Link>
+    </motion.div>
   );
 }
