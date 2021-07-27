@@ -19,7 +19,7 @@ export default function Home() {
   };
   return (
     <motion.div
-      className="grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1 flex-auto w-11/12 z-20 mb-3 shadow-2xl auto-rows-min"
+      className="grid grid-cols-1 md:grid-cols-2 flex-1 w-11/12 z-20 mb-3 shadow-2xl auto-rows-fr justify-items-stretch items-stretch"
       style={wrapperStyle}
       // initial={{ x: 400 }}
       // animate={{ x: 0 }}

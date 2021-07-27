@@ -13,10 +13,15 @@ export default function ChooseKind() {
   }
   return (
     <div className="flex flex-col md:flex-row justify-between w-11/12 z-10 flex-auto mb-3">
-      <div className="bg-red-400 w-full md:w-5/12 h-full">
-        {/* <Visualization /> */}
+      <div
+        className="bg-red-400 w-full md:w-5/12 flex-auto md:flex-none"
+        // style={{ maxHeight: "20px" }}
+      >
+        <Visualization />
       </div>
-      <div className="bg-green-400 w-full md:w-7/12 h-full md:ml-3"></div>
+      <div className="w-full md:w-7/12 md:pl-3 flex-1 md:flex-none">
+        <div className="bg-green-400 w-full h-full"></div>
+      </div>
       {/* <Menu />
       {store.scoops.map((el, index) => {
         return <ScoopListItem el={el} index={index} key={index} />;

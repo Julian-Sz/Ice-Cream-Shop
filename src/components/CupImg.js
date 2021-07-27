@@ -24,10 +24,9 @@ export default function CupImg(props) {
     <motion.svg
       id="svg_visu"
       viewBox="-12.5 -12.5 325 525"
-      // className="absolute bottom-0 left-0 right-0 mx-auto z-20"
       xmlns="http://www.w3.org/2000/svg"
       style={svgStyle}
-      className="h-full"
+      className=""
       // layout
       // layoutID="CupImg"
     >
