@@ -1,9 +1,11 @@
 body {
+  background: #130f40;
   overflow-x: hidden;
 }
 
 .App {
-  background: #130f40;
+  max-width: 1600px;
+  margin: auto;
 }
 
 #bg-circle1 {

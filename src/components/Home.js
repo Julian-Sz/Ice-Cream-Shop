@@ -7,26 +7,19 @@ import { motion } from "framer-motion";
 export default function Home() {
   // const { dispatch } = useContext(MyContext);
   const ImageStyle = {
-    objectFit: "cover",
+    backgroundImage: `url(${HomeIcecream})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
   };
 
   const leftSectionStyle = {
     background: "#2c3e50",
   };
-  const rightSectionStyle = {};
-  const wrapperStyle = {
-    maxHeight: "80vh",
-  };
+
   return (
-    <motion.div
-      className="grid grid-cols-1 md:grid-cols-2 flex-1 w-11/12 z-20 mb-3 shadow-2xl auto-rows-fr justify-items-stretch items-stretch"
-      style={wrapperStyle}
-      // initial={{ x: 400 }}
-      // animate={{ x: 0 }}
-      // exit={{ x: -400 }}
-    >
+    <motion.div className="grid grid-cols-1 md:grid-cols-2 w-11/12 z-20 mb-3 shadow-2xl flex-1 auto-rows-fr">
       <div
-        className="w-full h-full flex flex-col justify-around z-30 p-5" // border-solid border-4 border-red-500
+        className="flex flex-col justify-around z-30 p-5"
         style={leftSectionStyle}
       >
         <h1 className="text-2xl md:text-3xl">
@@ -38,17 +31,7 @@ export default function Home() {
           </h2>
         </Link>
       </div>
-      <div
-        className="w-full h-full z-20" //border-solid border-4 border-green-500
-        style={rightSectionStyle}
-      >
-        <img
-          src={HomeIcecream}
-          style={ImageStyle}
-          className="h-full w-full"
-          alt="An ice cream"
-        />
-      </div>
+      <div className="z-20 p-5" style={ImageStyle}></div>
     </motion.div>
   );
 }

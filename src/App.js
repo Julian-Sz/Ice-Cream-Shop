@@ -55,10 +55,6 @@ function App() {
     cone: undefined,
     scoops: [],
   });
-
-  const visuContainerStyles = {
-    minHeight: "570px",
-  };
   return (
     <Router>
       <div id="background-circles" className="z-0">
@@ -71,10 +67,7 @@ function App() {
           className="rounded-full absolute top-2 right-10"
         ></div>
       </div>
-      <div
-        className="App flex flex-col justify-start items-center z-10 text-center text-white"
-        style={{ minHeight: "100vh" }}
-      >
+      <div className="App flex flex-col justify-start items-center z-10 text-center text-white h-screen">
         <MyContext.Provider value={{ store, dispatch }}>
           <Nav />
           <Route path="/" exact>
