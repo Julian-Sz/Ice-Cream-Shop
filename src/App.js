@@ -1,6 +1,6 @@
 // import logo from "./logo.svg";
-import React, { useReducer } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { useReducer, useEffect, useState } from "react";
+import { BrowserRouter, Route, Switch, useLocation } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/Nav";
 import Home from "./components/Home";
@@ -34,7 +34,7 @@ const reducer = (prev, action) => {
     case ACTIONS.SET_CONE:
       return { ...prev, cone: action.payload };
     case ACTIONS.ADD_SCOOP:
-      if (newScoops.length < 5) {
+      if (newScoops.length < 10) {
         newScoops.push(action.payload);
       }
       return { ...prev, scoops: newScoops };
@@ -55,8 +55,25 @@ function App() {
     cone: undefined,
     scoops: [],
   });
+
+  const location = useLocation();
+  console.log(location.pathname);
+
+  const [AppClasses, setAppClasses] = useState(
+    "App flex flex-col justify-start items-center z-10 text-center text-white h-screen"
+  );
+
+  useEffect(() => {
+    console.log("useEffect ran");
+    if (location.pathname === "/ChooseKind") {
+      setAppClasses(
+        "App flex flex-col justify-start items-center z-10 text-center text-white min-h-screen"
+      );
+    }
+  }, [location]);
+
   return (
-    <Router>
+    <BrowserRouter>
       <div id="background-circles" className="z-0">
         <div
           id="bg-circle1"
@@ -67,23 +84,12 @@ function App() {
           className="rounded-full absolute top-2 right-10"
         ></div>
       </div>
-      <div className="App flex flex-col justify-start items-center z-10 text-center text-white h-screen">
+      <div className={AppClasses}>
         <MyContext.Provider value={{ store, dispatch }}>
           <Nav />
           <Route path="/" exact>
             <Home />
           </Route>
-          {/* <Route path="/(ChooseKind|ChooseConeCup)/">
-            {store.cone !== undefined && (
-              <div
-                id="visualization-container"
-                className="relative w-80 mb-3"
-                style={visuContainerStyles}
-              >
-                <Visualization />
-              </div>
-            )}
-          </Route> */}
           <Route path="/ChooseConeCup">
             <ChooseConeCup />
           </Route>
@@ -92,7 +98,7 @@ function App() {
           </Route>
         </MyContext.Provider>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 

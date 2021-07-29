@@ -9,31 +9,48 @@ export default function Menu() {
     selected: { name: undefined, color: undefined },
   });
 
-  const btnClickHandler = (el) => {
-    setState((prev) => {
-      return { ...prev, selected: { name: el[0], color: el[1] } };
-    });
-  };
-
-  const nextClickHandler = (el) => {
-    if (state.selected.name === undefined) {
-      window.alert("Please choose an option.");
-    } else {
-      dispatch({
-        type: ACTIONS.ADD_SCOOP,
-        payload: [state.selected.name, state.selected.color],
-      });
-    }
-  };
-
-  let containerStyle = {};
-  if (state.selected.name !== undefined) {
-    containerStyle = {
-      background: state.selected.color,
-    };
-  }
   return (
-    <div className="p-3 rounded shadow-md bg-gray-100" style={containerStyle}>
+    <div className="bg-blue-500 flex-initial mb-3">
+      <div className="">
+        <h1 className="text-3xl">Add a scoop:</h1>
+      </div>
+      <div className="grid grid-cols-2 md:grid-cols-4">
+        {Object.entries(VARIETIES).map((el, index) => {
+          let name = el[0];
+          let color = el[1];
+          return (
+            <motion.div
+              whileHover={{ borderRadius: "20px" }}
+              className="flex flex-col justify-end m-1 shadow-2xl"
+              style={{ background: color, minHeight: "90px" }}
+              key={name}
+              onClick={() => {
+                dispatch({
+                  type: ACTIONS.ADD_SCOOP,
+                  payload: [name, color],
+                });
+              }}
+            >
+              <span
+                className=""
+                style={{
+                  background: "rgba(99, 110, 114, 0.7)",
+                  borderBottomRightRadius: "inherit",
+                  borderBottomLeftRadius: "inherit",
+                }}
+              >
+                {name}
+              </span>
+            </motion.div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+{
+  /* <div className="p-3 rounded shadow-md bg-gray-100" style={containerStyle}>
       <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-max gap-3 place-items-stretch">
         <div className="col-span-2 md:col-span-4 p-5 rounded shadow-md bg-gray-500 bg-opacity-80">
           <span className="p-1 rounded text-white text-2xl">
@@ -101,6 +118,22 @@ export default function Menu() {
           Next
         </button>
       </div>
-    </div>
-  );
+    </div> */
 }
+
+// const btnClickHandler = (el) => {
+//   setState((prev) => {
+//     return { ...prev, selected: { name: el[0], color: el[1] } };
+//   });
+// };
+
+// const nextClickHandler = (el) => {
+//   if (state.selected.name === undefined) {
+//     window.alert("Please choose an option.");
+//   } else {
+//     dispatch({
+//       type: ACTIONS.ADD_SCOOP,
+//       payload: [state.selected.name, state.selected.color],
+//     });
+//   }
+// };
