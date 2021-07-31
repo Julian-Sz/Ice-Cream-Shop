@@ -32,3 +32,13 @@ h5,
 h6 {
   height: min-content;
 }
+
+#home-grid {
+  grid-template-rows: 50% 50%;
+}
+
+@media (min-width: 768px) {
+  #home-grid {
+    grid-template-rows: 100%;
+  }
+} ;

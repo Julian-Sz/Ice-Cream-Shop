@@ -1,36 +1,36 @@
 import React, { useContext, useState } from "react";
 import { MyContext } from "../App.js";
 import { useHistory } from "react-router-dom";
-import Menu from "./Menu.js";
-import ScoopListItem from "./ScoopListItem.js";
 import Visualization from "./Visualization.js";
+import { MAX_SCOOPS } from "../App.js";
+import Scoop from "./Scoop.js";
 
 export default function ChooseKind() {
   const { store, dispatch } = useContext(MyContext);
-  const [state, setState] = useState({ menuOpened: true });
+  const scoopsToRender = [...store.scoops];
+  if (scoopsToRender.length < MAX_SCOOPS) {
+    scoopsToRender.unshift(undefined);
+  }
   const history = useHistory();
   if (store.cone === undefined) {
     history.push("/ChooseConeCup");
   }
+  console.log("scoopsToRender: " + scoopsToRender);
+  console.log("scoops in store", store.scoops);
   return (
     <div className="flex flex-col md:flex-row justify-between w-11/12 z-10 flex-auto mb-3">
-      <div
-        className="bg-red-400 md:w-5/12 flex-auto md:flex-none"
-        // style={{ height: "60vh" }}
-      >
-        <div
-          className="bg-green-400"
-          style={{ height: "90px", width: "200px" }}
-        >
-          Some Content
-        </div>
-        {/*{" "}
-        <Visualization /> */}
+      <div className="bg-red-400 md:w-5/12 flex-auto md:flex-none">
+        <Visualization />
       </div>
       <div className="w-full md:w-7/12 md:pl-3 flex-1 md:flex-none flex flex-col items-stretch">
-        {state.menuOpened && <Menu />}
-        {store.scoops.map((el, index) => {
-          return <ScoopListItem el={el} index={index} key={index} />;
+        {store.scoops.length >= MAX_SCOOPS && (
+          <h1 className="mb-3 p-2 font-bold bg-red-700 text-xl shadow-2xl">
+            Maximum number of scoops reached,
+            <br /> enjoy your big ice!
+          </h1>
+        )}
+        {scoopsToRender.map((el, index) => {
+          return <Scoop el={el} index={index} key={index}></Scoop>;
         })}
         {store.scoops.length > 0 && (
           <button className="mt-auto px-3 py-1 rounded border-4 shadow-2xl hover:bg-gray-200 hover:text-black">

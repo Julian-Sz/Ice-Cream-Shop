@@ -24,21 +24,25 @@ export const VARIETIES = {
 export const ACTIONS = {
   SET_CONE: "change-cone",
   ADD_SCOOP: "add-scoop",
-  REMOVE_CUP: "remove-cup",
+  REMOVE_SCOOP: "remove-scoop",
   RESET: "reset",
 };
 
+export const MAX_SCOOPS = 10;
+
 const reducer = (prev, action) => {
   let newScoops = [...prev.scoops];
+  console.log("action dispatched", action);
   switch (action.type) {
     case ACTIONS.SET_CONE:
       return { ...prev, cone: action.payload };
     case ACTIONS.ADD_SCOOP:
-      if (newScoops.length < 10) {
+      if (newScoops.length < MAX_SCOOPS) {
         newScoops.push(action.payload);
       }
       return { ...prev, scoops: newScoops };
-    case ACTIONS.REMOVE_CUP:
+    case ACTIONS.REMOVE_SCOOP:
+      console.log("removed scoop", action.payload);
       newScoops.splice(action.payload, 1);
       return { ...prev, scoops: newScoops };
     case ACTIONS.RESET:
@@ -56,21 +60,24 @@ function App() {
     scoops: [],
   });
 
-  const location = useLocation();
-  console.log(location.pathname);
+  const AppClasses =
+    "App flex flex-col justify-start items-center z-10 text-center text-white min-h-screen";
 
-  const [AppClasses, setAppClasses] = useState(
-    "App flex flex-col justify-start items-center z-10 text-center text-white h-screen"
-  );
+  // const location = useLocation();
+  // console.log(location.pathname);
 
-  useEffect(() => {
-    console.log("useEffect ran");
-    if (location.pathname === "/ChooseKind") {
-      setAppClasses(
-        "App flex flex-col justify-start items-center z-10 text-center text-white min-h-screen"
-      );
-    }
-  }, [location]);
+  // const [AppClasses, setAppClasses] = useState(
+  //   "App flex flex-col justify-start items-center z-10 text-center text-white h-screen"
+  // );
+
+  // useEffect(() => {
+  //   console.log("useEffect ran");
+  //   if (location.pathname === "/ChooseKind") {
+  //     setAppClasses(
+  //       "App flex flex-col justify-start items-center z-10 text-center text-white min-h-screen"
+  //     );
+  //   }
+  // }, [location]);
 
   return (
     <BrowserRouter>

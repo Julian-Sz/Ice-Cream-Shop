@@ -17,7 +17,10 @@ export default function Home() {
   };
 
   return (
-    <motion.div className="grid grid-cols-1 md:grid-cols-2 w-11/12 z-20 mb-3 shadow-2xl flex-1 auto-rows-fr">
+    <motion.div
+      className="grid grid-cols-1 md:grid-cols-2 w-11/12 z-20 mb-3 shadow-2xl flex-1 auto-rows-fr"
+      id="home-grid"
+    >
       <div
         className="flex flex-col justify-around z-30 p-5"
         style={leftSectionStyle}
