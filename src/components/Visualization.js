@@ -83,7 +83,9 @@ export default function Visualization() {
           />
         );
       })}
-      {store.cone ? <ConeImg /> : <CupImg />}
+      <div className="h-3/6 flex justify-center">
+        {store.cone ? <ConeImg /> : <CupImg />}
+      </div>
     </>
   );
 }
