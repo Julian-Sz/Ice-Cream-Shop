@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { ACTIONS, MyContext } from "../App.js";
 import CupImg from "./CupImg";
 import ConeImg from "./ConeImg";
@@ -8,11 +8,11 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Visualization() {
   const { store, dispatch } = useContext(MyContext);
 
-  const [dimensions, setDimensions] = React.useState({
+  const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
     width: window.innerWidth,
   });
-  React.useEffect(() => {
+  useEffect(() => {
     function handleResize() {
       setDimensions({
         height: window.innerHeight,
@@ -40,7 +40,7 @@ export default function Visualization() {
 
   const visuContainer = document.getElementById("visuContainer");
   const svg = document.getElementById("svg_visu");
-
+  console.log("visu got rerendered", visuContainer);
   if (visuContainer !== null && svg !== null) {
     const visuHeight = visuContainer.getBoundingClientRect().height;
     const visuWidth = visuContainer.getBoundingClientRect().width;
@@ -126,9 +126,16 @@ export default function Visualization() {
     <>
       <AnimatePresence>
         {store.scoops.map((el, index) => {
+          console.log(
+            "scoop rendered",
+            "VisuArr",
+            ScoopVisuArr,
+            "diameter",
+            diameter
+          );
           return (
             <ScoopVisu
-              key={index}
+              key={el[2]}
               posx={ScoopVisuArr[index].x}
               posy={ScoopVisuArr[index].y}
               zindex={ScoopVisuArr[index].zIndex}
@@ -137,7 +144,7 @@ export default function Visualization() {
             />
           );
         })}
-        <div className="h-3/6 flex justify-center mt-auto z-50">
+        <div className="h-3/6 flex justify-center mt-auto z-50 row-start-1">
           {store.cone ? <ConeImg /> : <CupImg />}
         </div>
       </AnimatePresence>

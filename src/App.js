@@ -6,7 +6,7 @@ import Nav from "./components/Nav";
 import Home from "./components/Home";
 import ChooseConeCup from "./components/ChooseConeCup";
 import ChooseKind from "./components/ChooseKind";
-import Visualization from "./components/Visualization";
+import CheckOrder from "./components/CheckOrder";
 import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
 export const VARIETIES = {
@@ -37,10 +37,16 @@ const reducer = (prev, action) => {
     case ACTIONS.SET_CONE:
       return { ...prev, cone: action.payload };
     case ACTIONS.ADD_SCOOP:
+      let arr = [...action.payload];
+      arr.push(prev.individualScoopIndex);
       if (newScoops.length < MAX_SCOOPS) {
-        newScoops.push(action.payload);
+        newScoops.push(arr);
       }
-      return { ...prev, scoops: newScoops };
+      return {
+        ...prev,
+        scoops: newScoops,
+        individualScoopIndex: prev.individualScoopIndex + 1,
+      };
     case ACTIONS.REMOVE_SCOOP:
       console.log("removed scoop", action.payload);
       newScoops.splice(action.payload, 1);
@@ -58,26 +64,11 @@ function App() {
   const [store, dispatch] = useReducer(reducer, {
     cone: undefined,
     scoops: [],
+    individualScoopIndex: 0,
   });
 
   const AppClasses =
     "App flex flex-col justify-start items-center z-10 text-center text-white min-h-screen";
-
-  // const location = useLocation();
-  // console.log(location.pathname);
-
-  // const [AppClasses, setAppClasses] = useState(
-  //   "App flex flex-col justify-start items-center z-10 text-center text-white h-screen"
-  // );
-
-  // useEffect(() => {
-  //   console.log("useEffect ran");
-  //   if (location.pathname === "/ChooseKind") {
-  //     setAppClasses(
-  //       "App flex flex-col justify-start items-center z-10 text-center text-white min-h-screen"
-  //     );
-  //   }
-  // }, [location]);
 
   return (
     <BrowserRouter>
@@ -102,6 +93,9 @@ function App() {
           </Route>
           <Route path="/ChooseKind">
             <ChooseKind />
+          </Route>
+          <Route path="/CheckOrder">
+            <CheckOrder />
           </Route>
         </MyContext.Provider>
       </div>

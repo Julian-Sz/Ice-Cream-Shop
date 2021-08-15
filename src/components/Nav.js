@@ -8,14 +8,8 @@ export default function Nav(props) {
   const liClasses =
     "px-3 py-1 rounded border-4 shadow-2xl hover:bg-gray-200 hover:text-black";
 
-  const navWrapperStyle = {
-    background: "#2c3e50",
-  };
   return (
-    <ul
-      className="flex flex-row justify-between w-11/12 z-20 p-5 my-3 shadow-2xl text-xl md:text-3xl"
-      style={navWrapperStyle}
-    >
+    <ul className="flex flex-row justify-between w-11/12 z-20 p-5 my-3 shadow-2xl text-xl md:text-3xl backgroundCard">
       <Link
         to="/"
         onClick={() => {

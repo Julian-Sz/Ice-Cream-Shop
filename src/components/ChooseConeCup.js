@@ -12,13 +12,12 @@ export default function ChooseConeCup() {
   }, [dispatch]);
 
   const cardStyle = {
-    background: "#2c3e50",
     height: "80vh",
     gridTemplateRows: "auto 40% 40%",
   };
   return (
     <motion.div
-      className="grid grid-cols-1 md:grid-cols-2 z-10 p-5 w-11/12 shadow-2xl justify-items-center auto-rows-min flex-1 mb-3"
+      className="grid grid-cols-1 md:grid-cols-2 z-10 p-5 w-11/12 shadow-2xl justify-items-center auto-rows-min flex-1 mb-3 backgroundCard"
       style={cardStyle}
     >
       <h1 className="col-span-1 md:col-span-2 text-2xl md:text-5xl md:mb-5">
