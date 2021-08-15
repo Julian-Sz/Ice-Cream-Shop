@@ -1,5 +1,6 @@
 import React from "react";
 // import { MyContext } from "../App.js";
+import { motion } from "framer-motion";
 
 export default function ScoopVisu(props) {
   // const { store } = useContext(MyContext);
@@ -10,8 +11,17 @@ export default function ScoopVisu(props) {
     height: props.diameter,
     width: props.diameter,
     zIndex: props.zindex,
-    right: props.posx - props.diameter / 2,
-    bottom: props.posy - props.diameter / 2,
+    left: props.posx - props.diameter / 2,
+    top: props.posy - props.diameter / 2,
   };
-  return <div className="absolute" style={scoopStyle}></div>;
+  return (
+    <motion.div
+      initial={{ scale: 0 }}
+      animate={{ scale: 1 }}
+      exit={{ scale: 0 }}
+      layout
+      className="absolute"
+      style={scoopStyle}
+    ></motion.div>
+  );
 }

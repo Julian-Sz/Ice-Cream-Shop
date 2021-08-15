@@ -28,11 +28,11 @@ export const ACTIONS = {
   RESET: "reset",
 };
 
-export const MAX_SCOOPS = 10;
+export const MAX_SCOOPS = 6; //ATTENTION: If this changes to a number higher than 6, the positions in the Visualization component must be adjusted.
 
 const reducer = (prev, action) => {
   let newScoops = [...prev.scoops];
-  console.log("action dispatched", action);
+  // console.log("action dispatched", action);
   switch (action.type) {
     case ACTIONS.SET_CONE:
       return { ...prev, cone: action.payload };

@@ -10,7 +10,7 @@ export default function Menu() {
   });
 
   return (
-    <div className="bg-blue-500 flex-initial mb-3">
+    <div className="bg-blue-500 flex-initial mb-3 z-10">
       <div className="">
         <h1 className="text-3xl">Add a scoop:</h1>
       </div>

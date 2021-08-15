@@ -37,8 +37,15 @@ h6 {
   grid-template-rows: 50% 50%;
 }
 
+#visuContainer {
+  height: 50vh;
+}
+
 @media (min-width: 768px) {
   #home-grid {
     grid-template-rows: 100%;
+  }
+  #visuContainer {
+    height: auto;
   }
 } ;

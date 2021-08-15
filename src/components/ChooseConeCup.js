@@ -18,10 +18,8 @@ export default function ChooseConeCup() {
   };
   return (
     <motion.div
-      className="grid grid-cols-1 md:grid-cols-2 z-10 p-5 w-11/12 shadow-2xl justify-items-center auto-rows-min"
+      className="grid grid-cols-1 md:grid-cols-2 z-10 p-5 w-11/12 shadow-2xl justify-items-center auto-rows-min flex-1 mb-3"
       style={cardStyle}
-      // initial={{ x: 400 }}
-      // animate={{ x: 0 }}
     >
       <h1 className="col-span-1 md:col-span-2 text-2xl md:text-5xl md:mb-5">
         How would you like your ice?
@@ -41,7 +39,7 @@ export default function ChooseConeCup() {
         onClick={() => {
           dispatch({ type: ACTIONS.SET_CONE, payload: false });
         }}
-        className="md:row-span-2 border-t-2 md:border-t-0 md:border-l-2 flex w-full justify-between items-center md:flex-col"
+        className="md:row-span-2 border-t-2 md:border-t-0 md:border-l-2 flex w-full justify-between items-center md:flex-col pl-2"
       >
         <h2 className="text-2xl md:text-3xl my-1 mx-4 md:my-5">Cup</h2>
         <CupImg height="70%" />

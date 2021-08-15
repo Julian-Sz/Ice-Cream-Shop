@@ -7,6 +7,7 @@ module.exports = {
   },
   variants: {
     extend: {},
+    margin: ["responsive"],
   },
   plugins: [],
 };
