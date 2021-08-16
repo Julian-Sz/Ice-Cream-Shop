@@ -3,7 +3,7 @@ import { ACTIONS, MyContext } from "../App.js";
 import { motion } from "framer-motion";
 
 export default function ScoopListItem(props) {
-  const { dispatch } = useContext(MyContext);
+  const { store, dispatch } = useContext(MyContext);
 
   const colorWindowStyle = {
     background: props.el[1],
@@ -46,7 +46,9 @@ export default function ScoopListItem(props) {
       <button
         className="mx-2"
         onClick={() => {
-          dispatch({ type: ACTIONS.REMOVE_SCOOP, payload: props.index - 1 });
+          console.log("removeScoop with individualIndex", props.el[2]);
+          console.log(store);
+          dispatch({ type: ACTIONS.REMOVE_SCOOP, payload: props.el[2] });
         }}
       >
         <svg

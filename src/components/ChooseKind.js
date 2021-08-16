@@ -16,8 +16,6 @@ export default function ChooseKind() {
   if (store.cone === undefined) {
     history.push("/ChooseConeCup");
   }
-  console.log("scoopsToRender: " + scoopsToRender);
-  console.log("scoops in store", store.scoops);
   return (
     <div className="flex flex-col md:flex-row md:mb-3 justify-between w-11/12 z-10 flex-auto">
       <div
@@ -39,11 +37,6 @@ export default function ChooseKind() {
           )}
           <AnimatePresence>
             {scoopsToRender.map((el, index) => {
-              console.log("el", el);
-              console.log("index undefined", index + 30);
-              try {
-                console.log("index defined", el[2]);
-              } catch {}
               if (el === undefined) {
                 return <Scoop el={el} index={index} key={"Menu"}></Scoop>;
               } else {

@@ -40,7 +40,7 @@ export default function Visualization() {
 
   const visuContainer = document.getElementById("visuContainer");
   const svg = document.getElementById("svg_visu");
-  console.log("visu got rerendered", visuContainer);
+  // console.log("visu got rerendered", visuContainer);
   if (visuContainer !== null && svg !== null) {
     const visuHeight = visuContainer.getBoundingClientRect().height;
     const visuWidth = visuContainer.getBoundingClientRect().width;
@@ -126,13 +126,6 @@ export default function Visualization() {
     <>
       <AnimatePresence>
         {store.scoops.map((el, index) => {
-          console.log(
-            "scoop rendered",
-            "VisuArr",
-            ScoopVisuArr,
-            "diameter",
-            diameter
-          );
           return (
             <ScoopVisu
               key={el[2]}

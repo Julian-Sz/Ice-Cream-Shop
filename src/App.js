@@ -48,7 +48,18 @@ const reducer = (prev, action) => {
         individualScoopIndex: prev.individualScoopIndex + 1,
       };
     case ACTIONS.REMOVE_SCOOP:
-      newScoops.splice(action.payload, 1);
+      let removeIndex;
+      for (let i = 0; i < newScoops.length; i++) {
+        if (newScoops[i][2] === action.payload) {
+          removeIndex = i;
+        }
+      }
+      if (removeIndex === undefined) {
+        window.alert(
+          "Error with Scoop removal, no Scoop with this index found!"
+        );
+      }
+      newScoops.splice(removeIndex, 1);
       return { ...prev, scoops: newScoops };
     case ACTIONS.RESET:
       return { ...prev, scoops: [], cone: undefined };
