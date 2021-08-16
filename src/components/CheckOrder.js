@@ -13,7 +13,7 @@ export default function CheckOrder() {
   }
   return (
     <div className="flex-auto w-11/12 mb-3 backgroundCard z-20 flex flex-col py-8">
-      <h1 className="text-2xl md:text-5xl md:self-start md:pl-4 md:mb-8">
+      <h1 className="text-2xl md:text-5xl md:pl-4 md:mb-8">
         Please check your order:
       </h1>
       <div id="visuContainer" className="w-4/12 self-center grid relative">
