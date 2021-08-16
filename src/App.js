@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import ChooseConeCup from "./components/ChooseConeCup";
 import ChooseKind from "./components/ChooseKind";
 import CheckOrder from "./components/CheckOrder";
+import FinalPage from "./components/FinalPage";
 import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
 export const VARIETIES = {
@@ -32,7 +33,6 @@ export const MAX_SCOOPS = 6; //ATTENTION: If this changes to a number higher tha
 
 const reducer = (prev, action) => {
   let newScoops = [...prev.scoops];
-  // console.log("action dispatched", action);
   switch (action.type) {
     case ACTIONS.SET_CONE:
       return { ...prev, cone: action.payload };
@@ -48,7 +48,6 @@ const reducer = (prev, action) => {
         individualScoopIndex: prev.individualScoopIndex + 1,
       };
     case ACTIONS.REMOVE_SCOOP:
-      console.log("removed scoop", action.payload);
       newScoops.splice(action.payload, 1);
       return { ...prev, scoops: newScoops };
     case ACTIONS.RESET:
@@ -96,6 +95,9 @@ function App() {
           </Route>
           <Route path="/CheckOrder">
             <CheckOrder />
+          </Route>
+          <Route path="/FinalPage">
+            <FinalPage />
           </Route>
         </MyContext.Provider>
       </div>
