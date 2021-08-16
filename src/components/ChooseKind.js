@@ -20,7 +20,7 @@ export default function ChooseKind() {
     <div className="flex flex-col md:flex-row md:mb-3 justify-between w-11/12 z-10 flex-auto">
       <div
         id="visuContainer"
-        className="bg-red-400 md:w-5/12 flex justify-center relative"
+        className="md:w-5/12 flex justify-center relative"
       >
         <Visualization />
       </div>

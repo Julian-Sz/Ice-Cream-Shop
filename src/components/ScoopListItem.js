@@ -46,8 +46,6 @@ export default function ScoopListItem(props) {
       <button
         className="mx-2"
         onClick={() => {
-          console.log("removeScoop with individualIndex", props.el[2]);
-          console.log(store);
           dispatch({ type: ACTIONS.REMOVE_SCOOP, payload: props.el[2] });
         }}
       >
