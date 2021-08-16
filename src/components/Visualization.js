@@ -7,7 +7,10 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function Visualization() {
   const { store, dispatch } = useContext(MyContext);
-
+  const [state, setState] = useState(false);
+  useEffect(() => {
+    setTimeout(() => setState(!state), 10);
+  }, []);
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
     width: window.innerWidth,

@@ -1,18 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { VARIETIES, ACTIONS, MyContext } from "../App.js";
-// import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export default function Menu() {
   const { dispatch } = useContext(MyContext);
-  const [state, setState] = useState({
-    selected: { name: undefined, color: undefined },
-  });
 
   return (
     <motion.div
       layoutID="MenuBox"
-      className="bg-blue-500 flex-initial mb-3 z-10"
+      className="backgroundCard p-3 flex-initial mb-3 z-10"
     >
       <div className="">
         <h1 className="text-3xl">Add a scoop:</h1>

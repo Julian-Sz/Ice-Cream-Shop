@@ -6,10 +6,7 @@ import ScoopListItem from "./ScoopListItem.js";
 
 export default function CheckOrder() {
   const { store, dispatch } = useContext(MyContext);
-  const [state, setState] = useState(false);
-  useEffect(() => {
-    setTimeout(() => setState(!state), 10);
-  }, []);
+
   const history = useHistory();
   if (store.cone === undefined || store.scoops.length === 0) {
     history.push("/ChooseConeCup");
