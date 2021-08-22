@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ACTIONS, MyContext } from "../App.js";
 import ConeImg from "./ConeImg.js";
 import CupImg from "./CupImg.js";
-import { motion, AnimateSharedLayout } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function ChooseConeCup() {
   const { dispatch } = useContext(MyContext); //store

@@ -2,19 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 
 export default function CupImg(props) {
-  const pathVariants = {
-    hidden: {
-      pathLength: 0,
-    },
-    animate: {
-      pathLength: 1,
-      transition: {
-        duration: 2,
-        ease: "easeInOut",
-      },
-    },
-  };
-
   const svgStyle = {
     height: props.height,
     maxWidth: "100%",

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { MyContext } from "../App.js";
 import { useHistory } from "react-router-dom";
 import Visualization from "./Visualization.js";
@@ -7,7 +7,7 @@ import Scoop from "./Scoop.js";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 
 export default function ChooseKind() {
-  const { store, dispatch } = useContext(MyContext);
+  const { store } = useContext(MyContext);
   const scoopsToRender = [...store.scoops];
   if (scoopsToRender.length < MAX_SCOOPS) {
     scoopsToRender.unshift(undefined);

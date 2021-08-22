@@ -1,20 +1,23 @@
 import React, { useContext, useState, useEffect } from "react";
-import { ACTIONS, MyContext } from "../App.js";
+import { MyContext } from "../App.js";
 import CupImg from "./CupImg";
 import ConeImg from "./ConeImg";
 import ScoopVisu from "./ScoopVisu";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 export default function Visualization() {
-  const { store, dispatch } = useContext(MyContext);
+  const { store } = useContext(MyContext);
+  console.log("store in Visu", store);
   const [state, setState] = useState(false);
   useEffect(() => {
-    setTimeout(() => setState(!state), 10);
+    setTimeout(() => setState(true), 100);
   }, []);
+
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
     width: window.innerWidth,
   });
+
   useEffect(() => {
     function handleResize() {
       setDimensions({
@@ -43,11 +46,10 @@ export default function Visualization() {
 
   const visuContainer = document.getElementById("visuContainer");
   const svg = document.getElementById("svg_visu");
-  // console.log("visu got rerendered", visuContainer);
+  console.log("svg in visu", svg);
   if (visuContainer !== null && svg !== null) {
     const visuHeight = visuContainer.getBoundingClientRect().height;
     const visuWidth = visuContainer.getBoundingClientRect().width;
-    const svgHeight = svg.getBoundingClientRect().height;
     const svgWidth = svg.getBoundingClientRect().width;
     diameter = svgWidth / 2;
     let s1, s2, s3, s4, s5, s6;
@@ -125,18 +127,20 @@ export default function Visualization() {
         break;
     }
   }
+  console.log("ScoopVisuArr", ScoopVisuArr);
+  console.log("------------------render closed------------------");
   return (
     <>
       <AnimatePresence>
-        {store.scoops.map((el, index) => {
+        {ScoopVisuArr.map((el, index) => {
           return (
             <ScoopVisu
-              key={el[2]}
-              posx={ScoopVisuArr[index].x}
-              posy={ScoopVisuArr[index].y}
-              zindex={ScoopVisuArr[index].zIndex}
+              key={store.scoops[index][2]}
+              posx={el.x}
+              posy={el.y}
+              zindex={el.zIndex}
               diameter={diameter}
-              el={el}
+              el={store.scoops[index]}
             />
           );
         })}

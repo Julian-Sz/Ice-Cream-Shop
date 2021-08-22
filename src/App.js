@@ -1,6 +1,6 @@
 // import logo from "./logo.svg";
-import React, { useReducer, useEffect, useState } from "react";
-import { BrowserRouter, Route, Switch, useLocation } from "react-router-dom";
+import React, { useReducer } from "react";
+import { BrowserRouter, Route } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/Nav";
 import Home from "./components/Home";
@@ -8,7 +8,7 @@ import ChooseConeCup from "./components/ChooseConeCup";
 import ChooseKind from "./components/ChooseKind";
 import CheckOrder from "./components/CheckOrder";
 import FinalPage from "./components/FinalPage";
-import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
+// import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
 export const VARIETIES = {
   Vanilla: "#FAE074",

@@ -1,19 +1,20 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { MyContext } from "../App.js";
 import Visualization from "./Visualization.js";
 import { useHistory, Link } from "react-router-dom";
 import ScoopListItem from "./ScoopListItem.js";
 
 export default function CheckOrder() {
-  const { store, dispatch } = useContext(MyContext);
+  const { store } = useContext(MyContext);
 
   const history = useHistory();
+  console.log("store", store);
   if (store.cone === undefined || store.scoops.length === 0) {
     history.push("/ChooseConeCup");
   }
   return (
-    <div className="flex-auto w-11/12 mb-3 backgroundCard z-20 flex flex-col py-8">
-      <h1 className="text-2xl md:text-5xl md:pl-4 md:mb-8">
+    <div className="flex-auto w-11/12 mb-3 backgroundCard z-20 flex flex-col py-8 relative">
+      <h1 className="text-2xl md:text-5xl md:pl-4 md:mb-8 absolute top-10 right-0 left-0 mx-auto">
         Please check your order:
       </h1>
       <div id="visuContainer" className="w-4/12 self-center grid relative">
@@ -33,7 +34,7 @@ export default function CheckOrder() {
       </div>
       <Link
         to="/FinalPage"
-        className="w-11/12 md:w-min self-center md:self-end md:mr-8 mt-auto"
+        className="w-11/12 md:w-min self-center md:self-end md:mr-8 mt-auto flex justify-end"
       >
         <button className="text-4xl px-3 py-2 rounded border-4 shadow-2xl hover:bg-gray-200 hover:text-black flex items-center justify-around">
           <span className="mr-3">Order</span>

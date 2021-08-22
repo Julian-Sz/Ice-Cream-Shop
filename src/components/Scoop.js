@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Menu from "./Menu.js";
 import ScoopListItem from "./ScoopListItem.js";
 

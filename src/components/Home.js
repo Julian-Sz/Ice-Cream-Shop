@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import HomeIcecream from "../Images/Home-Icecream.jpg";
 // import { ACTIONS, MyContext } from "../App.js";

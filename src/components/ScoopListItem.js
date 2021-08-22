@@ -3,7 +3,7 @@ import { ACTIONS, MyContext } from "../App.js";
 import { motion } from "framer-motion";
 
 export default function ScoopListItem(props) {
-  const { store, dispatch } = useContext(MyContext);
+  const { dispatch } = useContext(MyContext);
 
   const colorWindowStyle = {
     background: props.el[1],

@@ -2,21 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 export default function ConeImg(props) {
-  const pathVariants = {
-    hidden: {
-      opacity: 0,
-      pathLength: 0,
-    },
-    animate: {
-      opacity: 1,
-      pathLength: 1,
-      transition: {
-        duration: 2,
-        ease: "easeInOut",
-      },
-    },
-  };
-
+  console.log("ConeImg rendered");
   const svgStyle = {
     height: props.height,
     maxWidth: "100%",
@@ -29,8 +15,6 @@ export default function ConeImg(props) {
       xmlns="http://www.w3.org/2000/svg"
       style={svgStyle}
       className=""
-      // layout
-      // layoutID="ConeImg"
     >
       <g id="Layer_1">
         <title>Layer 1</title>
