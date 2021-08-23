@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { MyContext } from "../App.js";
 import Visualization from "./Visualization.js";
 import { useHistory, Link } from "react-router-dom";
@@ -9,10 +9,11 @@ export default function CheckOrder() {
   const { store } = useContext(MyContext);
 
   const history = useHistory();
-  console.log("store", store);
-  if (store.cone === undefined || store.scoops.length === 0) {
-    history.push("/ChooseConeCup");
-  }
+  useEffect(() => {
+    if (store.cone === undefined || store.scoops.length === 0) {
+      history.push("/ChooseConeCup");
+    }
+  }, []);
 
   const checkOrderVariants = {
     initial: {

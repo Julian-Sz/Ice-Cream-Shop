@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { ACTIONS, MyContext } from "../App.js";
+// import { ACTIONS, MyContext } from "../App.js";
 
 export default function Nav(props) {
-  const { dispatch } = useContext(MyContext);
+  // const { dispatch } = useContext(MyContext);
 
   const liClasses =
     "px-3 py-1 rounded border-4 shadow-2xl hover:bg-gray-200 hover:text-black";

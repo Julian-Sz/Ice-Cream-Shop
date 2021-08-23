@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import { MyContext } from "../App.js";
 import { useHistory } from "react-router-dom";
 import Visualization from "./Visualization.js";
@@ -12,10 +12,13 @@ export default function ChooseKind() {
   if (scoopsToRender.length < MAX_SCOOPS) {
     scoopsToRender.unshift(undefined);
   }
+
   const history = useHistory();
-  if (store.cone === undefined) {
-    history.push("/ChooseConeCup");
-  }
+  useEffect(() => {
+    if (store.cone === undefined) {
+      history.push("/ChooseConeCup");
+    }
+  }, []);
 
   const chooseKindVariants = {
     initial: {

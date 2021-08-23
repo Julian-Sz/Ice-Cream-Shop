@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 
 export default function ConeImg(props) {
-  console.log("ConeImg rendered");
   const svgStyle = {
     height: props.height,
     maxWidth: "100%",
@@ -22,7 +21,6 @@ export default function ConeImg(props) {
           initial={{ pathLength: 0, fill: "rgba(0, 0, 0, 0)" }}
           animate={{ pathLength: 1, fill: "#FFDFB8" }}
           transition={{ duration: 3 }}
-          // fill="#FFDFB8"
           d="M0,0l100,400l100,-400L0,0l100,400"
           stroke="#482816"
           strokeWidth="25"

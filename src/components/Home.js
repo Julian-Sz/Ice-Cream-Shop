@@ -2,14 +2,13 @@ import React, { useEffect, useContext } from "react";
 import { ACTIONS, MyContext } from "../App.js";
 import { Link } from "react-router-dom";
 import HomeIcecream from "../Images/Home-Icecream.jpg";
-// import { ACTIONS, MyContext } from "../App.js";
 import { motion } from "framer-motion";
 
 export default function Home() {
   const { dispatch } = useContext(MyContext);
   useEffect(() => {
     dispatch({ type: ACTIONS.RESET, payload: undefined });
-  }, []);
+  }, [dispatch]);
 
   const imageStyle = {
     backgroundImage: `url(${HomeIcecream})`,

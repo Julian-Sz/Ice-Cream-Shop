@@ -6,10 +6,10 @@ import CupImg from "./CupImg.js";
 import { motion } from "framer-motion";
 
 export default function ChooseConeCup() {
-  const { dispatch } = useContext(MyContext); //store
-  useEffect(() => {
-    dispatch({ type: ACTIONS.RESET, payload: undefined });
-  }, [dispatch]);
+  const { dispatch } = useContext(MyContext);
+  // useEffect(() => {
+  //   dispatch({ type: ACTIONS.RESET, payload: undefined });
+  // }, [dispatch]);
 
   const cardStyle = {
     height: "80vh",

@@ -23,7 +23,6 @@ export default function CupImg(props) {
           initial={{ pathLength: 0, fill: "rgba(0, 0, 0, 0)" }}
           animate={{ pathLength: 1, fill: "#FFDFB8" }}
           transition={{ duration: 3 }}
-          // fill="#FFDFB8"
           strokeWidth="25"
           d="M0,0L70,500L230,500L300,0L0,0L70,500"
           stroke="#482816"

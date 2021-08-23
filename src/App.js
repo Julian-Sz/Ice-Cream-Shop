@@ -1,6 +1,6 @@
 // import logo from "./logo.svg";
 import React, { useReducer } from "react";
-import { BrowserRouter, Route, Switch, useLocation } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/Nav";
 import Home from "./components/Home";
@@ -82,8 +82,6 @@ function App() {
 
   const location = useLocation();
 
-  console.log("location: ", location);
-
   return (
     <>
       <div id="background-circles" className="z-0">
@@ -97,27 +95,23 @@ function App() {
         ></div>
       </div>
       <div className={AppClasses}>
+        <Nav key={"Nav"} />
         <MyContext.Provider value={{ store, dispatch }}>
           <AnimatePresence exitBeforeEnter>
             <Switch location={location} key={location.pathname}>
               <Route path="/" exact>
-                <Nav key={"Nav"} />
                 <Home />
               </Route>
               <Route path="/ChooseConeCup">
-                <Nav key={"Nav"} />
                 <ChooseConeCup />
               </Route>
               <Route path="/ChooseKind">
-                <Nav key={"Nav"} />
                 <ChooseKind />
               </Route>
               <Route path="/CheckOrder">
-                <Nav key={"Nav"} />
                 <CheckOrder />
               </Route>
               <Route path="/FinalPage">
-                <Nav key={"Nav"} />
                 <FinalPage />
               </Route>
             </Switch>
