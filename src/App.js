@@ -1,6 +1,6 @@
 // import logo from "./logo.svg";
 import React, { useReducer } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch, useLocation } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/Nav";
 import Home from "./components/Home";
@@ -8,7 +8,7 @@ import ChooseConeCup from "./components/ChooseConeCup";
 import ChooseKind from "./components/ChooseKind";
 import CheckOrder from "./components/CheckOrder";
 import FinalPage from "./components/FinalPage";
-// import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
+import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
 export const VARIETIES = {
   Vanilla: "#FAE074",
@@ -78,10 +78,14 @@ function App() {
   });
 
   const AppClasses =
-    "App flex flex-col justify-start items-center z-10 text-center text-white min-h-screen";
+    "App flex flex-col justify-start items-center z-10 text-center text-white min-h-screen md:h-screen md:max-h-screen overflow-x-hidden";
+
+  const location = useLocation();
+
+  console.log("location: ", location);
 
   return (
-    <BrowserRouter>
+    <>
       <div id="background-circles" className="z-0">
         <div
           id="bg-circle1"
@@ -94,25 +98,33 @@ function App() {
       </div>
       <div className={AppClasses}>
         <MyContext.Provider value={{ store, dispatch }}>
-          <Nav />
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/ChooseConeCup">
-            <ChooseConeCup />
-          </Route>
-          <Route path="/ChooseKind">
-            <ChooseKind />
-          </Route>
-          <Route path="/CheckOrder">
-            <CheckOrder />
-          </Route>
-          <Route path="/FinalPage">
-            <FinalPage />
-          </Route>
+          <AnimatePresence exitBeforeEnter>
+            <Switch location={location} key={location.pathname}>
+              <Route path="/" exact>
+                <Nav key={"Nav"} />
+                <Home />
+              </Route>
+              <Route path="/ChooseConeCup">
+                <Nav key={"Nav"} />
+                <ChooseConeCup />
+              </Route>
+              <Route path="/ChooseKind">
+                <Nav key={"Nav"} />
+                <ChooseKind />
+              </Route>
+              <Route path="/CheckOrder">
+                <Nav key={"Nav"} />
+                <CheckOrder />
+              </Route>
+              <Route path="/FinalPage">
+                <Nav key={"Nav"} />
+                <FinalPage />
+              </Route>
+            </Switch>
+          </AnimatePresence>
         </MyContext.Provider>
       </div>
-    </BrowserRouter>
+    </>
   );
 }
 

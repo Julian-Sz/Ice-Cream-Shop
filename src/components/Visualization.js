@@ -9,9 +9,10 @@ export default function Visualization() {
   const { store } = useContext(MyContext);
   console.log("store in Visu", store);
   const [state, setState] = useState(false);
-  useEffect(() => {
-    setTimeout(() => setState(true), 100);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => setState(true), 100);
+  // }, []);
+  //this causes the error in the console
 
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,

@@ -19,10 +19,10 @@ export default function ConeImg(props) {
       <g id="Layer_1">
         <title>Layer 1</title>
         <motion.path
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
+          initial={{ pathLength: 0, fill: "rgba(0, 0, 0, 0)" }}
+          animate={{ pathLength: 1, fill: "#FFDFB8" }}
           transition={{ duration: 3 }}
-          fill="#FFDFB8"
+          // fill="#FFDFB8"
           d="M0,0l100,400l100,-400L0,0l100,400"
           stroke="#482816"
           strokeWidth="25"

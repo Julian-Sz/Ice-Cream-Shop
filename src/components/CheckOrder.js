@@ -3,6 +3,7 @@ import { MyContext } from "../App.js";
 import Visualization from "./Visualization.js";
 import { useHistory, Link } from "react-router-dom";
 import ScoopListItem from "./ScoopListItem.js";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function CheckOrder() {
   const { store } = useContext(MyContext);
@@ -12,8 +13,38 @@ export default function CheckOrder() {
   if (store.cone === undefined || store.scoops.length === 0) {
     history.push("/ChooseConeCup");
   }
+
+  const checkOrderVariants = {
+    initial: {
+      x: "110vw",
+      opacity: 0.5,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+        ease: "easeOut",
+      },
+    },
+    exit: {
+      x: "-110vw",
+      opacity: 0.5,
+      transition: {
+        duration: 1,
+        ease: "easeIn",
+      },
+    },
+  };
+
   return (
-    <div className="flex-auto w-11/12 mb-3 backgroundCard z-20 flex flex-col py-8 relative">
+    <motion.div
+      variants={checkOrderVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      className="flex-auto w-11/12 mb-3 backgroundCard z-20 flex flex-col py-8 relative"
+    >
       <h1 className="text-2xl md:text-5xl md:pl-4 md:mb-8 absolute top-10 right-0 left-0 mx-auto">
         Please check your order:
       </h1>
@@ -21,16 +52,18 @@ export default function CheckOrder() {
         {store !== undefined && <Visualization />}
       </div>
       <div className="w-11/12 md:w-8/12 self-center mt-5">
-        {store.scoops.map((el, index) => {
-          return (
-            <ScoopListItem
-              key={el[2]}
-              el={el}
-              index={index}
-              checkorder={true}
-            ></ScoopListItem>
-          );
-        })}
+        <AnimatePresence>
+          {store.scoops.map((el, index) => {
+            return (
+              <ScoopListItem
+                key={el[2]}
+                el={el}
+                index={index}
+                checkorder={true}
+              ></ScoopListItem>
+            );
+          })}
+        </AnimatePresence>
       </div>
       <Link
         to="/FinalPage"
@@ -51,6 +84,6 @@ export default function CheckOrder() {
           </svg>
         </button>
       </Link>
-    </div>
+    </motion.div>
   );
 }

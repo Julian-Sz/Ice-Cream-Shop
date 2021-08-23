@@ -16,8 +16,38 @@ export default function ChooseKind() {
   if (store.cone === undefined) {
     history.push("/ChooseConeCup");
   }
+
+  const chooseKindVariants = {
+    initial: {
+      x: "110vw",
+      opacity: 0.5,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+        ease: "easeOut",
+      },
+    },
+    exit: {
+      x: "-110vw",
+      opacity: 0.5,
+      transition: {
+        duration: 1,
+        ease: "easeIn",
+      },
+    },
+  };
+
   return (
-    <div className="flex flex-col md:flex-row md:mb-3 justify-between w-11/12 z-10 flex-auto">
+    <motion.div
+      variants={chooseKindVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      className="flex flex-col md:flex-row md:mb-3 justify-between w-11/12 z-10 flex-auto"
+    >
       <div
         id="visuContainer"
         className="md:w-5/12 flex justify-center relative"
@@ -56,6 +86,6 @@ export default function ChooseKind() {
           </button>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }

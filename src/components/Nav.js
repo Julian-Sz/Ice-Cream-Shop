@@ -10,12 +10,7 @@ export default function Nav(props) {
 
   return (
     <ul className="flex flex-row justify-between w-11/12 z-20 p-5 my-3 shadow-2xl text-xl md:text-3xl backgroundCard">
-      <Link
-        to="/"
-        onClick={() => {
-          dispatch({ type: ACTIONS.RESET, payload: undefined });
-        }}
-      >
+      <Link to="/">
         <li className={liClasses}>Home</li>
       </Link>
       <li className={liClasses}>About</li>

@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import { ACTIONS, MyContext } from "../App.js";
 import { Link } from "react-router-dom";
 import HomeIcecream from "../Images/Home-Icecream.jpg";
 // import { ACTIONS, MyContext } from "../App.js";
 import { motion } from "framer-motion";
 
 export default function Home() {
-  // const { dispatch } = useContext(MyContext);
-  const ImageStyle = {
+  const { dispatch } = useContext(MyContext);
+  useEffect(() => {
+    dispatch({ type: ACTIONS.RESET, payload: undefined });
+  }, []);
+
+  const imageStyle = {
     backgroundImage: `url(${HomeIcecream})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
@@ -16,8 +21,34 @@ export default function Home() {
     background: "#2c3e50",
   };
 
+  const homeVariants = {
+    initial: {
+      x: "110vw",
+      opacity: 0.5,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+        ease: "easeOut",
+      },
+    },
+    exit: {
+      x: "-110vw",
+      opacity: 0.5,
+      transition: {
+        duration: 1,
+        ease: "easeIn",
+      },
+    },
+  };
   return (
     <motion.div
+      variants={homeVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
       className="grid grid-cols-1 md:grid-cols-2 w-11/12 z-20 mb-3 shadow-2xl flex-1 auto-rows-fr"
       id="home-grid"
     >
@@ -34,7 +65,7 @@ export default function Home() {
           </h2>
         </Link>
       </div>
-      <div className="z-20 p-5" style={ImageStyle}></div>
+      <div className="z-20 p-5" style={imageStyle}></div>
     </motion.div>
   );
 }
