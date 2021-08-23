@@ -29,10 +29,11 @@ export default function Visualization(props) {
   // }, []);
 
   class Scoop {
-    constructor(x, y, zIndex) {
+    constructor(x, y, zIndex, el) {
       this.x = x;
       this.y = y;
       this.zIndex = zIndex;
+      this.el = el;
     }
   }
 
@@ -51,72 +52,148 @@ export default function Visualization(props) {
       let s1, s2, s3, s4, s5, s6;
       switch (store.scoops.length) {
         case 1:
-          s1 = new Scoop(visuWidth / 2, visuHeight / 2, 0);
+          s1 = new Scoop(visuWidth / 2, visuHeight / 2, 0, store.scoops[0]);
           scoopVisuArr.push(s1);
           diameter = svgWidth - 10;
           break;
         case 2:
-          s1 = new Scoop(visuWidth / 2 - svgWidth / 5, visuHeight / 2, 1);
-          s2 = new Scoop(visuWidth / 2 + svgWidth / 5, visuHeight / 2, 0);
+          s1 = new Scoop(
+            visuWidth / 2 - svgWidth / 5,
+            visuHeight / 2,
+            1,
+            store.scoops[0]
+          );
+          s2 = new Scoop(
+            visuWidth / 2 + svgWidth / 5,
+            visuHeight / 2,
+            0,
+            store.scoops[1]
+          );
           diameter = (1.1 * svgWidth) / 2;
           scoopVisuArr.push(s1, s2);
           break;
         case 3:
           diameter = (1.1 * svgWidth) / 2;
-          s1 = new Scoop(visuWidth / 2 - svgWidth / 5, visuHeight / 2, 2);
-          s2 = new Scoop(visuWidth / 2 + svgWidth / 5, visuHeight / 2, 1);
-          s3 = new Scoop(visuWidth / 2, visuHeight / 2 - diameter / 2, 0);
+          s1 = new Scoop(
+            visuWidth / 2 - svgWidth / 5,
+            visuHeight / 2,
+            2,
+            store.scoops[0]
+          );
+          s2 = new Scoop(
+            visuWidth / 2 + svgWidth / 5,
+            visuHeight / 2,
+            1,
+            store.scoops[1]
+          );
+          s3 = new Scoop(
+            visuWidth / 2,
+            visuHeight / 2 - diameter / 2,
+            0,
+            store.scoops[2]
+          );
           scoopVisuArr.push(s1, s2, s3);
           break;
         case 4:
           diameter = (1.1 * svgWidth) / 2;
-          s1 = new Scoop(visuWidth / 2 - svgWidth / 5, visuHeight / 2, 2);
-          s2 = new Scoop(visuWidth / 2 + svgWidth / 5, visuHeight / 2, 1);
+          s1 = new Scoop(
+            visuWidth / 2 - svgWidth / 5,
+            visuHeight / 2,
+            2,
+            store.scoops[0]
+          );
+          s2 = new Scoop(
+            visuWidth / 2 + svgWidth / 5,
+            visuHeight / 2,
+            1,
+            store.scoops[1]
+          );
           s3 = new Scoop(
             visuWidth / 2 - svgWidth / 8,
             visuHeight / 2 - diameter / 2,
-            0
+            0,
+            store.scoops[2]
           );
           s4 = new Scoop(
             visuWidth / 2 + svgWidth / 8,
             visuHeight / 2 - diameter / 2,
-            0
+            0,
+            store.scoops[3]
           );
           scoopVisuArr.push(s1, s2, s3, s4);
           break;
         case 5:
           diameter = (1.1 * svgWidth) / 2;
-          s1 = new Scoop(visuWidth / 2 - svgWidth / 5, visuHeight / 2, 3);
-          s2 = new Scoop(visuWidth / 2 + svgWidth / 5, visuHeight / 2, 2);
+          s1 = new Scoop(
+            visuWidth / 2 - svgWidth / 5,
+            visuHeight / 2,
+            3,
+            store.scoops[0]
+          );
+          s2 = new Scoop(
+            visuWidth / 2 + svgWidth / 5,
+            visuHeight / 2,
+            2,
+            store.scoops[1]
+          );
           s3 = new Scoop(
             visuWidth / 2 - svgWidth / 8,
             visuHeight / 2 - diameter / 2,
-            1
+            1,
+            store.scoops[2]
           );
           s4 = new Scoop(
             visuWidth / 2 + svgWidth / 8,
             visuHeight / 2 - diameter / 2,
-            1
+            1,
+            store.scoops[3]
           );
-          s5 = new Scoop(visuWidth / 2, visuHeight / 2 - diameter, 0);
+          s5 = new Scoop(
+            visuWidth / 2,
+            visuHeight / 2 - diameter,
+            0,
+            store.scoops[4]
+          );
           scoopVisuArr.push(s1, s2, s3, s4, s5);
           break;
         case 6:
           diameter = (1.1 * svgWidth) / 2;
-          s1 = new Scoop(visuWidth / 2 - svgWidth / 5, visuHeight / 2, 5);
-          s2 = new Scoop(visuWidth / 2 + svgWidth / 5, visuHeight / 2, 4);
-          s3 = new Scoop(visuWidth / 2, visuHeight / 2 - diameter / 4, 2);
+          s1 = new Scoop(
+            visuWidth / 2 - svgWidth / 5,
+            visuHeight / 2,
+            5,
+            store.scoops[0]
+          );
+          s2 = new Scoop(
+            visuWidth / 2 + svgWidth / 5,
+            visuHeight / 2,
+            4,
+            store.scoops[1]
+          );
+          s3 = new Scoop(
+            visuWidth / 2,
+            visuHeight / 2 - diameter / 4,
+            2,
+            store.scoops[2]
+          );
           s4 = new Scoop(
             visuWidth / 2 - svgWidth / 8,
             visuHeight / 2 - diameter / 2,
-            1
+            1,
+            store.scoops[3]
           );
           s5 = new Scoop(
             visuWidth / 2 + svgWidth / 8,
             visuHeight / 2 - diameter / 2,
-            1
+            1,
+            store.scoops[4]
           );
-          s6 = new Scoop(visuWidth / 2, visuHeight / 2 - diameter, 0);
+          s6 = new Scoop(
+            visuWidth / 2,
+            visuHeight / 2 - diameter,
+            0,
+            store.scoops[5]
+          );
           scoopVisuArr.push(s1, s2, s3, s4, s5, s6);
           break;
         default:
@@ -131,14 +208,15 @@ export default function Visualization(props) {
     <>
       <AnimatePresence>
         {finalVisuArr.map((el, index) => {
+          console.log(finalVisuArr, store.scoops, "index", index);
           return (
             <ScoopVisu
-              key={store.scoops[index][2]}
+              key={el.el[2]}
               posx={el.x}
               posy={el.y}
               zindex={el.zIndex}
               diameter={finalDiameter}
-              el={store.scoops[index]}
+              el={el.el}
             />
           );
         })}
