@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/Unreal-Ice-Cream-Shop/static/css/main.095cc1d6.chunk.css",
-    "main.js": "/Unreal-Ice-Cream-Shop/static/js/main.671461f8.chunk.js",
-    "main.js.map": "/Unreal-Ice-Cream-Shop/static/js/main.671461f8.chunk.js.map",
+    "main.js": "/Unreal-Ice-Cream-Shop/static/js/main.22038179.chunk.js",
+    "main.js.map": "/Unreal-Ice-Cream-Shop/static/js/main.22038179.chunk.js.map",
     "runtime-main.js": "/Unreal-Ice-Cream-Shop/static/js/runtime-main.0bcd69b7.js",
     "runtime-main.js.map": "/Unreal-Ice-Cream-Shop/static/js/runtime-main.0bcd69b7.js.map",
-    "static/js/2.225fa322.chunk.js": "/Unreal-Ice-Cream-Shop/static/js/2.225fa322.chunk.js",
-    "static/js/2.225fa322.chunk.js.map": "/Unreal-Ice-Cream-Shop/static/js/2.225fa322.chunk.js.map",
+    "static/js/2.d1a7e3ff.chunk.js": "/Unreal-Ice-Cream-Shop/static/js/2.d1a7e3ff.chunk.js",
+    "static/js/2.d1a7e3ff.chunk.js.map": "/Unreal-Ice-Cream-Shop/static/js/2.d1a7e3ff.chunk.js.map",
     "static/js/3.b55e029c.chunk.js": "/Unreal-Ice-Cream-Shop/static/js/3.b55e029c.chunk.js",
     "static/js/3.b55e029c.chunk.js.map": "/Unreal-Ice-Cream-Shop/static/js/3.b55e029c.chunk.js.map",
     "index.html": "/Unreal-Ice-Cream-Shop/index.html",
     "static/css/main.095cc1d6.chunk.css.map": "/Unreal-Ice-Cream-Shop/static/css/main.095cc1d6.chunk.css.map",
-    "static/js/2.225fa322.chunk.js.LICENSE.txt": "/Unreal-Ice-Cream-Shop/static/js/2.225fa322.chunk.js.LICENSE.txt",
+    "static/js/2.d1a7e3ff.chunk.js.LICENSE.txt": "/Unreal-Ice-Cream-Shop/static/js/2.d1a7e3ff.chunk.js.LICENSE.txt",
     "static/media/Home-Icecream.fe25be9e.jpg": "/Unreal-Ice-Cream-Shop/static/media/Home-Icecream.fe25be9e.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.0bcd69b7.js",
-    "static/js/2.225fa322.chunk.js",
+    "static/js/2.d1a7e3ff.chunk.js",
     "static/css/main.095cc1d6.chunk.css",
-    "static/js/main.671461f8.chunk.js"
+    "static/js/main.22038179.chunk.js"
   ]
 }
