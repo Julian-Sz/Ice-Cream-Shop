@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { MyContext } from "../App.js";
 import CupImg from "./CupImg";
 import ConeImg from "./ConeImg";
@@ -28,18 +28,17 @@ export default function Visualization(props) {
   //   };
   // }, []);
 
-  class Scoop {
-    constructor(x, y, zIndex, el) {
-      this.x = x;
-      this.y = y;
-      this.zIndex = zIndex;
-      this.el = el;
-    }
-  }
-
   const [finalVisuArr, setFinalVisuArr] = useState([]);
   const [finalDiameter, setFinalDiameter] = useState(130);
   useEffect(() => {
+    class Scoop {
+      constructor(x, y, zIndex, el) {
+        this.x = x;
+        this.y = y;
+        this.zIndex = zIndex;
+        this.el = el;
+      }
+    }
     const scoopVisuArr = [];
     const visuContainer = document.getElementById("visuContainer");
     const svg = document.getElementById("svg_visu");
@@ -208,7 +207,6 @@ export default function Visualization(props) {
     <>
       <AnimatePresence>
         {finalVisuArr.map((el, index) => {
-          console.log(finalVisuArr, store.scoops, "index", index);
           return (
             <ScoopVisu
               key={el.el[2]}

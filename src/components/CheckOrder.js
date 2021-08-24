@@ -13,7 +13,7 @@ export default function CheckOrder() {
     if (store.cone === undefined || store.scoops.length === 0) {
       history.push("/ChooseConeCup");
     }
-  }, []);
+  }, [store.cone, history, store.scoops.length]);
 
   const checkOrderVariants = {
     initial: {

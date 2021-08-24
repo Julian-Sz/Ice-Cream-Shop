@@ -8,7 +8,7 @@ import ChooseConeCup from "./components/ChooseConeCup";
 import ChooseKind from "./components/ChooseKind";
 import CheckOrder from "./components/CheckOrder";
 import FinalPage from "./components/FinalPage";
-import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 export const VARIETIES = {
   Vanilla: "#FAE074",
@@ -78,7 +78,7 @@ function App() {
   });
 
   const AppClasses =
-    "App flex flex-col justify-start items-center z-10 text-center text-white min-h-screen md:h-screen md:max-h-screen overflow-x-hidden";
+    "App flex flex-col justify-start items-center z-10 text-center text-white min-h-screen md:h-screen md:max-h-screen";
 
   const location = useLocation();
 

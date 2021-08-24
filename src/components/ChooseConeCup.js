@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ACTIONS, MyContext } from "../App.js";
 import ConeImg from "./ConeImg.js";
@@ -7,9 +7,6 @@ import { motion } from "framer-motion";
 
 export default function ChooseConeCup() {
   const { dispatch } = useContext(MyContext);
-  // useEffect(() => {
-  //   dispatch({ type: ACTIONS.RESET, payload: undefined });
-  // }, [dispatch]);
 
   const cardStyle = {
     height: "80vh",
