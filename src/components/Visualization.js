@@ -5,28 +5,29 @@ import ConeImg from "./ConeImg";
 import ScoopVisu from "./ScoopVisu";
 import { AnimatePresence } from "framer-motion";
 
+function useWindowSize() {
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  return windowSize;
+}
+
 export default function Visualization(props) {
   const { store } = useContext(MyContext);
 
-  // const [dimensions, setDimensions] = useState({
-  //   height: window.innerHeight,
-  //   width: window.innerWidth,
-  // });
-
-  // useEffect(() => {
-  //   function handleResize() {
-  //     setDimensions({
-  //       height: window.innerHeight,
-  //       width: window.innerWidth,
-  //     });
-  //   }
-
-  //   window.addEventListener("resize", handleResize);
-
-  //   return () => {
-  //     window.addEventListener("resize", handleResize);
-  //   };
-  // }, []);
+  const size = useWindowSize();
 
   const [finalVisuArr, setFinalVisuArr] = useState([]);
   const [finalDiameter, setFinalDiameter] = useState(130);
@@ -201,7 +202,7 @@ export default function Visualization(props) {
       setFinalVisuArr(scoopVisuArr);
       setFinalDiameter(diameter);
     }
-  }, [store.scoops]);
+  }, [store.scoops, size]);
 
   return (
     <>
