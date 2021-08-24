@@ -39,8 +39,8 @@ export default function About() {
         Hi, I am Julian Szigethy, the creator of this.
       </h1>
       <p className="my-5">
-        I've created this project was created to train my skills of
-        framer-motion, react and react-router.
+        I've created this project to train my skills of framer-motion, react and
+        react-router.
       </p>
       <p className="my-5">
         Here is a link to my website: "currently under construction"
