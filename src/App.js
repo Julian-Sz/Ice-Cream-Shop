@@ -8,6 +8,7 @@ import ChooseConeCup from "./components/ChooseConeCup";
 import ChooseKind from "./components/ChooseKind";
 import CheckOrder from "./components/CheckOrder";
 import FinalPage from "./components/FinalPage";
+import About from "./components/About";
 import { AnimatePresence } from "framer-motion";
 
 export const VARIETIES = {
@@ -113,6 +114,9 @@ function App() {
               </Route>
               <Route path="/FinalPage">
                 <FinalPage />
+              </Route>
+              <Route path="/about">
+                <About />
               </Route>
             </Switch>
           </AnimatePresence>

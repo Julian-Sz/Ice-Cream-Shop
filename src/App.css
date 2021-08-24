@@ -38,6 +38,10 @@ h6 {
   height: min-content;
 }
 
+.activeNav {
+  background-color: #3498db;
+}
+
 #home-grid {
   grid-template-rows: 50% 50%;
 }
@@ -53,4 +57,13 @@ h6 {
   #visuContainer {
     height: auto;
   }
-} ;
+}
+
+#aboutSection h3 {
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+}
+
+#aboutSection section {
+  margin: 15px 0;
+}

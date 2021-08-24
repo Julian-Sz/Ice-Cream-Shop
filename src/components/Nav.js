@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 // import { ACTIONS, MyContext } from "../App.js";
 
 export default function Nav(props) {
@@ -10,10 +10,12 @@ export default function Nav(props) {
 
   return (
     <ul className="flex flex-row justify-between w-11/12 z-20 p-5 my-3 shadow-2xl text-xl md:text-3xl backgroundCard">
-      <Link to="/">
+      <NavLink activeClassName={"activeNav"} to="/" exact>
         <li className={liClasses}>Home</li>
-      </Link>
-      <li className={liClasses}>About</li>
+      </NavLink>
+      <NavLink activeClassName={"activeNav"} to="/about">
+        <li className={liClasses}>About</li>
+      </NavLink>
     </ul>
   );
 }
