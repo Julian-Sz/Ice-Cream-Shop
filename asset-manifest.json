@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Ice-Cream-Shop/static/css/main.095cc1d6.chunk.css",
-    "main.js": "/Ice-Cream-Shop/static/js/main.22038179.chunk.js",
-    "main.js.map": "/Ice-Cream-Shop/static/js/main.22038179.chunk.js.map",
+    "main.js": "/Ice-Cream-Shop/static/js/main.5147b967.chunk.js",
+    "main.js.map": "/Ice-Cream-Shop/static/js/main.5147b967.chunk.js.map",
     "runtime-main.js": "/Ice-Cream-Shop/static/js/runtime-main.29405b50.js",
     "runtime-main.js.map": "/Ice-Cream-Shop/static/js/runtime-main.29405b50.js.map",
     "static/js/2.d1a7e3ff.chunk.js": "/Ice-Cream-Shop/static/js/2.d1a7e3ff.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.29405b50.js",
     "static/js/2.d1a7e3ff.chunk.js",
     "static/css/main.095cc1d6.chunk.css",
-    "static/js/main.22038179.chunk.js"
+    "static/js/main.5147b967.chunk.js"
   ]
 }
