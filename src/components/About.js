@@ -42,9 +42,12 @@ export default function About() {
         I've created this project to train my skills of framer-motion, react and
         react-router.
       </p>
-      <p className="my-5">
-        Here is a link to my website: "currently under construction"
-      </p>
+      <a
+        href="https://julian-sz.github.io/#/"
+        className="my-5 text-blue-500 underline"
+      >
+        Here is a link to my website
+      </a>
     </motion.div>
   );
 }
